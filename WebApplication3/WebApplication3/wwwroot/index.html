@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Love 💕 | Rayan & Ahmed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- LOADER -->
+    <div class="loader" id="loader">
+        <div class="loader-heart">💖</div>
+        <p class="loader-text">Loading our love story...</p>
+        <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+
+    <div class="petals" id="petals"></div>
+    <div class="aurora"></div>
+    <div class="cursor-heart" id="cursorHeart"></div>
+
+    <!-- ✨ TOP BAR (Theme + Share) -->
+    <div class="top-bar" id="topBar">
+        <button class="icon-btn" onclick="toggleTheme()" title="Theme">🌙</button>
+        <button class="icon-btn" onclick="shareSite()" title="Share">📤</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-box">
+            <div class="heart-3d">
+                <div class="heart-shape"></div>
+                <div class="heart-glow"></div>
+            </div>
+            <h1 class="brand">My Love</h1>
+            <p class="sub">Where forever begins 💕</p>
+            <div class="input-group">
+                <span class="icon">👤</span>
+                <input type="text" id="username" placeholder="Username" autocomplete="off">
+            </div>
+            <div class="input-group">
+                <span class="icon">🔒</span>
+                <input type="password" id="password" placeholder="Password">
+            </div>
+            <button class="login-btn" onclick="login()">
+                <span>Enter Our World</span>
+                <span class="btn-heart">💕</span>
+            </button>
+            <div class="error" id="error"></div>
+            <p class="hint">Rayan & Ahmed • Since Forever</p>
+        </div>
+    </div>
+
+    <!-- SITE -->
+    <div class="site" id="site">
+        <header class="hero">
+            <div class="hero-content">
+                <span class="hero-tag">💖 Our Story</span>
+                <h1 class="hero-title">Rayan <span class="amp">&</span> Ahmed</h1>
+                <p class="hero-sub">Two hearts, one beautiful journey</p>
+                <div class="hero-hearts" onclick="kissMe()" style="cursor:pointer" title="Click me!">💕 💖 💗 💓 💞</div>
+            </div>
+            <div class="hero-wave"></div>
+        </header>
+
+        <!-- ✨ QUICK STATS -->
+        <div class="quick-stats">
+            <div class="stat-card"><div class="stat-icon">📸</div><span class="stat-num" id="statPhotos">0</span><span class="stat-label">Photos</span></div>
+            <div class="stat-card"><div class="stat-icon">🎬</div><span class="stat-num" id="statVideos">0</span><span class="stat-label">Videos</span></div>
+            <div class="stat-card"><div class="stat-icon">💌</div><span class="stat-num" id="statNotes">0</span><span class="stat-label">Notes</span></div>
+            <div class="stat-card"><div class="stat-icon">💑</div><span class="stat-num" id="statDays">0</span><span class="stat-label">Days</span></div>
+        </div>
+
+        <!-- ✨ LOVE COUNTER -->
+        <div class="counter-section">
+            <h3 class="counter-title">💑 Our Love Journey</h3>
+            <div class="counter-grid">
+                <div class="counter-box"><span class="counter-num" id="cDays">0</span><span class="counter-label">Days</span></div>
+                <div class="counter-box"><span class="counter-num" id="cHours">0</span><span class="counter-label">Hours</span></div>
+                <div class="counter-box"><span class="counter-num" id="cMins">0</span><span class="counter-label">Minutes</span></div>
+                <div class="counter-box"><span class="counter-num" id="cSecs">0</span><span class="counter-label">Seconds</span></div>
+            </div>
+        </div>
+
+        <!-- ✨ COUNTDOWN TO SPECIAL DATE -->
+        <div class="countdown-box" id="countdownBox">
+            <div class="countdown-icon">🎂</div>
+            <h3 class="countdown-title">Next Special Day</h3>
+            <p class="countdown-name" id="cdName">Loading...</p>
+            <div class="countdown-grid">
+                <div class="cd-box"><span id="cdDays">0</span><small>Days</small></div>
+                <div class="cd-box"><span id="cdHours">0</span><small>Hours</small></div>
+                <div class="cd-box"><span id="cdMins">0</span><small>Mins</small></div>
+                <div class="cd-box"><span id="cdSecs">0</span><small>Secs</small></div>
+            </div>
+            <button class="small-btn" onclick="openDateModal()">✏️ Edit Dates</button>
+        </div>
+
+        <!-- DAILY -->
+        <div class="daily-box">
+            <div class="daily-icon">💌</div>
+            <h3 class="daily-title">Message of the Day</h3>
+            <p class="daily-text" id="dailyMsg"></p>
+        </div>
+
+        <!-- ✨ PHOTO OF THE DAY -->
+        <div class="potd-box" id="potdBox">
+            <h3 class="potd-title">📸 Photo of the Day</h3>
+            <div class="potd-img-wrap" id="potdWrap">
+                <p class="potd-empty">Add more photos to unlock the daily photo 💗</p>
+            </div>
+        </div>
+
+        <!-- ✨ WISH STARS -->
+        <div class="wish-box">
+            <h3 class="wish-title">🌟 Wish Upon a Star</h3>
+            <p class="wish-sub">Write your wishes together</p>
+            <div class="wish-input">
+                <input type="text" id="wishInput" placeholder="I wish for...">
+                <button onclick="addWish()">✨ Add Wish</button>
+            </div>
+            <div class="wishes-container" id="wishesContainer"></div>
+        </div>
+
+        <nav class="nav">
+            <a href="#photos" class="nav-link active">📸 Photos</a>
+            <a href="#videos" class="nav-link">🎬 Videos</a>
+            <a href="#notes" class="nav-link">💌 Love Notes</a>
+        </nav>
+
+        <!-- PHOTOS -->
+        <section class="section reveal" id="photos">
+            <div class="section-head">
+                <h2><span class="deco">❦</span> Our Photos <span class="deco">❦</span></h2>
+                <p class="section-sub">Moments we never want to forget</p>
+            </div>
+            <div class="upload-area">
+                <input type="file" id="photoInput" accept="image/*" multiple hidden>
+                <button class="add-btn" onclick="document.getElementById('photoInput').click()">
+                    <span class="plus">＋</span> Add Photos
+                </button>
+            </div>
+            <div class="gallery" id="photoGallery"></div>
+            <p class="empty-msg" id="photoEmpty">No photos yet — add your first memory 💗</p>
+        </section>
+
+        <!-- VIDEOS -->
+        <section class="section reveal" id="videos">
+            <div class="section-head">
+                <h2><span class="deco">❦</span> Our Videos <span class="deco">❦</span></h2>
+                <p class="section-sub">Every frame tells our story</p>
+            </div>
+            <div class="upload-area">
+                <input type="file" id="videoInput" accept="video/*" multiple hidden>
+                <button class="add-btn" onclick="document.getElementById('videoInput').click()">
+                    <span class="plus">＋</span> Add Videos
+                </button>
+            </div>
+            <div class="gallery video-gallery" id="videoGallery"></div>
+            <p class="empty-msg" id="videoEmpty">No videos yet — add your first clip 🎬</p>
+        </section>
+
+        <!-- NOTES -->
+        <section class="section reveal" id="notes">
+            <div class="section-head">
+                <h2><span class="deco">❦</span> Love Notes <span class="deco">❦</span></h2>
+                <p class="section-sub">Words from the heart</p>
+            </div>
+            <div class="notes-wrapper">
+                <div class="note-card rayan-card">
+                    <div class="note-header">
+                        <div class="avatar rayan-avatar">R</div>
+                        <div><h3>Rayan</h3><p class="note-to">to Ahmed 💗</p></div>
+                    </div>
+                    <textarea id="rayanNote" placeholder="Write something sweet for Ahmed..."></textarea>
+                    <div class="note-footer">
+                        <button class="save-btn" onclick="saveNote('rayanNote')">💾 Save</button>
+                        <p class="saved-msg" id="rayanSaved"></p>
+                    </div>
+                </div>
+                <div class="note-card ahmed-card">
+                    <div class="note-header">
+                        <div class="avatar ahmed-avatar">A</div>
+                        <div><h3>Ahmed</h3><p class="note-to">to Rayan 💙</p></div>
+                    </div>
+                    <textarea id="ahmedNote" placeholder="Write something sweet for Rayan..."></textarea>
+                    <div class="note-footer">
+                        <button class="save-btn" onclick="saveNote('ahmedNote')">💾 Save</button>
+                        <p class="saved-msg" id="ahmedSaved"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-hearts">💕</div>
+            <p class="script">Rayan & Ahmed</p>
+            <p class="tiny">Made with love • Forever & Always</p>
+        </footer>
+    </div>
+
+    <!-- ✨ KISS POPUP -->
+    <div class="kiss-popup" id="kissPopup">
+        <div class="kiss-content">
+            <div class="kiss-emoji">💋</div>
+            <p id="kissMsg"></p>
+        </div>
+    </div>
+
+    <!-- ✨ DATE MODAL -->
+    <div class="modal date-modal" id="dateModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeDateModal()">&times;</span>
+            <h3>✏️ Special Dates</h3>
+            <label>Event Name:</label>
+            <input type="text" id="dateName" placeholder="Birthday, Anniversary...">
+            <label>Date:</label>
+            <input type="date" id="dateValue">
+            <div class="modal-actions">
+                <button class="save-btn-modal" onclick="saveSpecialDate()">💾 Save</button>
+                <button class="del-btn-modal" onclick="clearSpecialDate()">🗑️ Clear</button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <button class="music-toggle" id="musicToggle" onclick="toggleMusic()">🎵</button>
+
+    <div class="modal" id="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImg" src="">
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

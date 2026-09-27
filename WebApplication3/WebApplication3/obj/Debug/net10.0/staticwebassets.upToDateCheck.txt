@@ -1,0 +1,7 @@
+wwwroot\index.html
+wwwroot\song.mp3
+wwwroot\style.css
+wwwroot\script.js
+D:\DATA A7\New folder\WebApplication3\WebApplication3\wwwroot\index.html
+D:\DATA A7\New folder\WebApplication3\WebApplication3\wwwroot\style.css
+D:\DATA A7\New folder\WebApplication3\WebApplication3\wwwroot\script.js
